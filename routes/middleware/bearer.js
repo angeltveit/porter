@@ -18,8 +18,7 @@ module.exports = function() {
 
     const auth = req.headers.authorization
     if(!auth) {
-      res.status(401)
-      throw new Error('unauthorized')
+      unauthorized(res)
     }
     const bearer = auth.split(' ')
 
