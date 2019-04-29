@@ -1,6 +1,7 @@
 const db = require('../../services/db')
 var jwt = require('jsonwebtoken')
 
+// Load clients into memory so we won't bother the db for each request
 let clients = []
 async function loadClients() {
   clients = await db('clients').select(['id', 'name', 'token', 'secret'])
